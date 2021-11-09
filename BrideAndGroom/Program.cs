@@ -1,17 +1,17 @@
 ﻿using System;
 using BrideAndGroomLibrary;
 
-namespace Program
+namespace BrideAndGroom
 {
-	class Program
-	{
-		static void Main(string[] args)
-		{
-			GoodLuck agency = new();
+    internal static class Program
+    {
+        private static void Main()
+        {
+            GoodLuck agency = new();
 
-			//agency.AddPerson(new BrideAndGroom());
+            //agency.AddPerson(new BrideAndGroom());
 
-			throw new NotImplementedException();
-		}
-	}
+            throw new NotImplementedException();
+        }
+    }
 }
