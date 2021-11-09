@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Drawing;
 
 namespace BrideAndGroomLibrary
 {
-	/// <summary>
-	///     Пол персоны
-	/// </summary>
-	public enum Gender
+    /// <summary>
+    ///     Пол персоны
+    /// </summary>
+    public enum Gender
     {
         Male,
         Female
@@ -18,42 +17,19 @@ namespace BrideAndGroomLibrary
     public class Person
     {
         /// <summary>
-        ///     Пол
-        /// </summary>
-        internal readonly Gender Gender;
-
-        /// <summary>
-        ///     Возраст
-        /// </summary>
-        private int _age;
-
-        /// <summary>
-        ///     Цвет глаз
-        /// </summary>
-        private Color _eyesColor;
-
-        /// <summary>
         ///     Полное имя
         /// </summary>
         private readonly string _fullName;
 
         /// <summary>
-        ///     Цвет волос
+        ///     Пол
         /// </summary>
-        private Color _hairColor;
+        internal readonly Gender Gender;
 
-        /// <summary>
-        ///     Рост
-        /// </summary>
-        private int _height;
 
-        protected Person(int age, Color eyesColor, string fullName, Color hairColor, int height, Gender gender)
+        protected Person(string fullName, Gender gender)
         {
-            _age = age;
-            _eyesColor = eyesColor;
             _fullName = fullName;
-            _hairColor = hairColor;
-            _height = height;
             Gender = gender;
         }
 
@@ -71,23 +47,27 @@ namespace BrideAndGroomLibrary
     {
         None = 0,
 
+        // Общие свойства человека
         HasEducation = 1,
-        Kind = 2,
-        Rich = 4,
-        Employed = 8,
-        Tall = 16,
+        Kind = HasEducation << 1,
+        Rich = Kind << 1,
+        Employed = Rich << 1,
 
-        BlondeHair = 32,
-        DarkHair = 64,
-        
-        AmberEyes = 128,
-        BlueEyes = 256,
-        BrownEyes = 512,
-        GrayEyes = 1024,
-        GreenEyes = 1024,
-        HazelEyes = 2048,
-        
-        Young = HazelEyes << 1,
+        // Рост
+        Tall = Employed << 1,
+        Short = Tall << 1,
+
+        // Цвет волос
+        BlondeHair = Short << 1,
+        DarkHair = BlondeHair << 1,
+
+        // Цвет глаз
+        BlueEyes = DarkHair << 1,
+        BrownEyes = BlueEyes << 1,
+        GreenEyes = BrownEyes << 1,
+
+        // Возраст
+        Young = GreenEyes << 1,
         MiddleAged = Young << 1,
         Old = MiddleAged << 1
     }

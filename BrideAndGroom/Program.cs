@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using BrideAndGroomLibrary;
 
 namespace BrideAndGroom
@@ -10,37 +9,26 @@ namespace BrideAndGroom
         {
             GoodLuck agency = new();
             // невеста
-            var bride = new BrideAndGroomLibrary.BrideAndGroom(32, 
-                Color.Aquamarine, 
-                "Lilya Brik", 
-                Color.Peru, 
-                160,
-                Gender.Female, 
-                Properties.Employed | Properties.Rich,
+            var bride = new BrideAndGroomLibrary.BrideAndGroom("Lilya Brik",
+                Gender.Female,
+                Properties.Kind | Properties.Young,
+                Properties.Employed | Properties.Rich
+            );
+
+            // жених
+            var groom1 = new BrideAndGroomLibrary.BrideAndGroom("Vladimir Mayakovsky",
+                Gender.Male,
+                Properties.Employed,
                 Properties.Kind);
-            
-            
             // жених
-            var groom1 = new BrideAndGroomLibrary.BrideAndGroom(34,
-                Color.Brown,
-                "Vladimir Mayakovsky",
-                Color.SaddleBrown,
-                180,
-                Gender.Male,
-                Properties.Kind,
-                Properties.Employed);
-            // жених
-            var groom2 = new BrideAndGroomLibrary.BrideAndGroom(34,
-                Color.Brown,
+            var groom2 = new BrideAndGroomLibrary.BrideAndGroom(
                 "Vladimir Noname",
-                Color.SaddleBrown,
-                180,
                 Gender.Male,
-                Properties.Kind,
-                Properties.None);
+                Properties.None,
+                Properties.Young);
 
             agency.AddPerson(bride);
-            agency.AddPerson(groom1);            
+            agency.AddPerson(groom1);
             agency.AddPerson(groom2);
 
             // Vladimir Mayakovsky
