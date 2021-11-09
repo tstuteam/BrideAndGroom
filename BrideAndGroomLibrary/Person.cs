@@ -4,61 +4,73 @@ using System.Drawing;
 namespace BrideAndGroomLibrary
 {
 	/// <summary>
-	///		Пол персоны.
+	///     Пол персоны
 	/// </summary>
-    public enum Gender
+	public enum Gender
     {
         Male,
         Female
     }
 
     /// <summary>
-	///     Класс, описывающий персону.
-	/// </summary>
-	public class Person
+    ///     Класс, описывающий персону
+    /// </summary>
+    public class Person
     {
-	    /// <summary>
-	    ///     Возраст.
-	    /// </summary>
-	    public int Age;
+        /// <summary>
+        ///     Пол
+        /// </summary>
+        internal readonly Gender Gender;
 
-	    /// <summary>
-	    ///     Цвет глаз.
-	    /// </summary>
-	    public Color EyesColor;
+        /// <summary>
+        ///     Возраст
+        /// </summary>
+        private int _age;
 
-	    /// <summary>
-	    ///     Полное имя.
-	    /// </summary>
-	    public string FullName;
+        /// <summary>
+        ///     Цвет глаз
+        /// </summary>
+        private Color _eyesColor;
 
-	    /// <summary>
-	    ///     Цвет волос.
-	    /// </summary>
-	    public Color HairColor;
+        /// <summary>
+        ///     Полное имя
+        /// </summary>
+        private readonly string _fullName;
 
-	    /// <summary>
-	    ///     Рост.
-	    /// </summary>
-	    public int Height;
+        /// <summary>
+        ///     Цвет волос
+        /// </summary>
+        private Color _hairColor;
 
-	    /// <summary>
-	    ///     Пол.
-	    /// </summary>
-	    public readonly Gender Gender;
+        /// <summary>
+        ///     Рост
+        /// </summary>
+        private int _height;
 
-	    protected Person(Gender gender)
+        protected Person(int age, Color eyesColor, string fullName, Color hairColor, int height, Gender gender)
         {
+            _age = age;
+            _eyesColor = eyesColor;
+            _fullName = fullName;
+            _hairColor = hairColor;
+            _height = height;
             Gender = gender;
+        }
+
+        public override string ToString()
+        {
+            return _fullName;
         }
     }
 
-	/// <summary>
-	///     Свойства, описывающие персону.
-	/// </summary>
-	[Flags]
+    /// <summary>
+    ///     Свойства, описывающие персону.
+    /// </summary>
+    [Flags]
     public enum Properties
     {
+        None = 0,
+
         HasEducation = 1,
         Kind = 2,
         Rich = 4,
@@ -67,12 +79,16 @@ namespace BrideAndGroomLibrary
 
         BlondeHair = 32,
         DarkHair = 64,
-
-        BlueEyes = 128,
-        GreenEyes = 256,
-
-        Young = 512,
-        MiddleAged = 1024,
-        Old = 2048
+        
+        AmberEyes = 128,
+        BlueEyes = 256,
+        BrownEyes = 512,
+        GrayEyes = 1024,
+        GreenEyes = 1024,
+        HazelEyes = 2048,
+        
+        Young = HazelEyes << 1,
+        MiddleAged = Young << 1,
+        Old = MiddleAged << 1
     }
 }
