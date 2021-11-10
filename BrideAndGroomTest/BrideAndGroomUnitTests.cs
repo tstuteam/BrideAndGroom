@@ -14,6 +14,8 @@ namespace BrideAndGroomTest
         {
             // Невесты
             var brides = new List<BrideAndGroom>();
+            if (brides == null)
+                throw new ArgumentNullException(nameof(brides));
             for (var i = 0; i < 10; i++)
                 brides.Add(new BrideAndGroom(GenerateName(R.Next(4, 10)),
                     Gender.Female,
@@ -22,6 +24,8 @@ namespace BrideAndGroomTest
 
             // Женехи
             var grooms = new List<BrideAndGroom>();
+            if (grooms == null)
+                throw new ArgumentNullException(nameof(grooms));
             for (var i = 0; i < 10; i++)
                 grooms.Add(new BrideAndGroom(GenerateName(R.Next(4, 10)),
                     Gender.Male,
@@ -68,9 +72,7 @@ namespace BrideAndGroomTest
         {
             var sum = 0;
             for (var i = 0; i < R.Next((int) Math.Log2((int) Properties.Old)); i++)
-            {
                 sum += GenerateBinary();
-            }
             return sum;
         }
     }
