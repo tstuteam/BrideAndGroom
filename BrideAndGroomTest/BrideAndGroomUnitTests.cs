@@ -17,7 +17,9 @@ namespace BrideAndGroomTest
             if (brides == null)
                 throw new ArgumentNullException(nameof(brides));
             for (var i = 0; i < 10; i++)
-                brides.Add(new BrideAndGroom(GenerateName(R.Next(4, 10)),
+                brides.Add(new BrideAndGroom(GenerateName(R.Next(4, 10)) +
+                                             " " +
+                                             GenerateName(R.Next(4, 10)),
                     Gender.Female,
                     (Properties) GenerateSumOfBinary(),
                     (Properties) GenerateSumOfBinary()));
@@ -27,7 +29,9 @@ namespace BrideAndGroomTest
             if (grooms == null)
                 throw new ArgumentNullException(nameof(grooms));
             for (var i = 0; i < 10; i++)
-                grooms.Add(new BrideAndGroom(GenerateName(R.Next(4, 10)),
+                grooms.Add(new BrideAndGroom(GenerateName(R.Next(4, 10)) +
+                                             " " +
+                                             GenerateName(R.Next(4, 10)),
                     Gender.Male,
                     (Properties) GenerateSumOfBinary(),
                     (Properties) GenerateSumOfBinary()));
@@ -65,7 +69,7 @@ namespace BrideAndGroomTest
 
         private static int GenerateBinary()
         {
-            return (int) Math.Pow(2, R.Next( (int) Math.Log2((int) Properties.Old)));
+            return (int) Math.Pow(2, R.Next((int) Math.Log2((int) Properties.Old)));
         }
 
         private static int GenerateSumOfBinary()
