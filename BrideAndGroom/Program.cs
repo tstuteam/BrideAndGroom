@@ -26,11 +26,16 @@ namespace BrideAndGroom
                 Gender.Male,
                 Properties.None,
                 Properties.Young);
+            // жених
+            var groom3 = new BrideAndGroomLibrary.BrideAndGroom("Esenin",
+                Gender.Male,
+                Properties.Employed | Properties.Rich,
+                Properties.Kind);
 
             agency.AddPerson(bride);
             agency.AddPerson(groom1);
             agency.AddPerson(groom2);
-
+            agency.AddPerson(groom3);
 
             Console.WriteLine(agency.FindBestPair(bride));
         }

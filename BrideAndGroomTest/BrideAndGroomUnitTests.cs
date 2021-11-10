@@ -17,16 +17,16 @@ namespace BrideAndGroomTest
             for (var i = 0; i < 10; i++)
                 brides.Add(new BrideAndGroom(GenerateName(R.Next(4, 10)),
                     Gender.Female,
-                    (Properties) GenerateBinary(),
-                    (Properties) GenerateBinary()));
+                    (Properties) GenerateSumOfBinary(),
+                    (Properties) GenerateSumOfBinary()));
 
             // Женехи
             var grooms = new List<BrideAndGroom>();
             for (var i = 0; i < 10; i++)
                 grooms.Add(new BrideAndGroom(GenerateName(R.Next(4, 10)),
                     Gender.Male,
-                    (Properties) GenerateBinary(),
-                    (Properties) GenerateBinary()));
+                    (Properties) GenerateSumOfBinary(),
+                    (Properties) GenerateSumOfBinary()));
 
 
             Assert.True(true);
@@ -61,7 +61,17 @@ namespace BrideAndGroomTest
 
         private static int GenerateBinary()
         {
-            return (int) Math.Pow(1, R.Next((int) Properties.Old));
+            return (int) Math.Pow(2, R.Next( (int) Math.Log2((int) Properties.Old)));
+        }
+
+        private static int GenerateSumOfBinary()
+        {
+            var sum = 0;
+            for (var i = 0; i < R.Next((int) Math.Log2((int) Properties.Old)); i++)
+            {
+                sum += GenerateBinary();
+            }
+            return sum;
         }
     }
 }
