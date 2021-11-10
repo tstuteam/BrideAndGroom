@@ -5,7 +5,7 @@ namespace BrideAndGroom
 {
     internal static class Program
     {
-        private static void Main()
+        private static void Test()
         {
             GoodLuck agency = new();
             // невеста
@@ -31,8 +31,13 @@ namespace BrideAndGroom
             agency.AddPerson(groom1);
             agency.AddPerson(groom2);
 
-            // Vladimir Mayakovsky
+
             Console.WriteLine(agency.FindBestPair(bride));
+        }
+
+        private static void Main()
+        {
+            Test();
         }
     }
 }
