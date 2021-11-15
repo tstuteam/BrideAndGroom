@@ -34,7 +34,7 @@ namespace BrideAndGroomLibrary
         /// <param name="strName">Имя файла</param>
         /// <param name="key">пароль</param>
         /// <param name="klient">Данные о клиенте</param>
-        private static void RecordFile(FileInfo fi, string strName, string key, BrideAndGroom klient)
+        public static void RecordFile(FileInfo fi, string strName, string key, BrideAndGroom klient)
         {
             StreamWriter sw = fi.AppendText();
             sw.WriteLine(key);

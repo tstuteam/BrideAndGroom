@@ -30,6 +30,6 @@ namespace BrideAndGroomLibrary
         /// <summary>
         ///     Свойства, которые хотелось бы иметь у партнёра
         /// </summary>
-        public Properties DesiredProperties { get; }
+        public Properties DesiredProperties { get; set; }
     }
 }
