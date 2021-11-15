@@ -40,9 +40,24 @@ namespace BrideAndGroom
             Console.WriteLine(agency.FindBestPair(bride));
         }
 
+        public static void workFile()
+        {
+            string Email = "waeff@fvw.eee";
+            string key = "1654";
+            var groom1 = new BrideAndGroomLibrary.BrideAndGroom("Esenin",
+                Gender.Male,
+                Properties.Employed | Properties.Rich,
+                Properties.Kind);
+            Email = WorkFile.file_add(Email, key, groom1);
+            Console.WriteLine(Email);
+
+            var groom2 = WorkFile.ReadFile(Email, key);
+            Console.WriteLine(groom1 == groom2);
+        }
         private static void Main()
         {
-            Test();
+            //Test();
+            workFile();
         }
     }
 }

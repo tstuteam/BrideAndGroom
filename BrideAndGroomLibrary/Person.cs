@@ -7,7 +7,7 @@ namespace BrideAndGroomLibrary
     /// </summary>
     public enum Gender
     {
-        Male,
+        Male = 1,
         Female
     }
 
