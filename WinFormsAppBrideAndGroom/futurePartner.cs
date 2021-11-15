@@ -134,11 +134,16 @@ namespace WinFormsAppBrideAndGroom
                 Gender.Male,
                 Properties.Employed | Properties.Rich,
                 Properties.Kind);
+            var groom4 = new BrideAndGroom("Ese",
+                Gender.Female,
+                Properties.Employed | Properties.Rich,
+                Properties.Kind);
 
             agency.AddPerson(klient);
             agency.AddPerson(groom1);
             agency.AddPerson(groom2);
             agency.AddPerson(groom3);
+            agency.AddPerson(groom4);
             textBox1.Text = agency.FindBestPair(klient).ToString();
         }
         /// <summary>
