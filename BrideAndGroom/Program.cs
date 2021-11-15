@@ -48,9 +48,8 @@ namespace BrideAndGroom
                 Gender.Male,
                 Properties.Employed | Properties.Rich,
                 Properties.Kind);
-            Email = WorkFile.file_add(Email, key, groom1);
-            Console.WriteLine(Email);
 
+            Email = WorkFile.file_add(Email, key, groom1);
             var groom2 = WorkFile.ReadFile(Email, key);
         }
         private static void Main()
