@@ -59,11 +59,10 @@ namespace BrideAndGroomLibrary
             Properties ownProperties = 0;
             Properties desProperties = 0;
 
-            // Open an existing file, or create a new one.
-            FileInfo fi = new FileInfo(strName);
+            strName += ".txt";
             // Create a writer, ready to add entries to the file.
 
-            StreamReader sr = new StreamReader(fi.OpenRead());
+            StreamReader sr = new StreamReader(strName);
             if (key == sr.ReadLine())
             {
 
