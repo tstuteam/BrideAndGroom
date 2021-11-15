@@ -52,7 +52,6 @@ namespace BrideAndGroom
             Console.WriteLine(Email);
 
             var groom2 = WorkFile.ReadFile(Email, key);
-            Console.WriteLine(groom1 == groom2);
         }
         private static void Main()
         {

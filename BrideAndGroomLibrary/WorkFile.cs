@@ -21,11 +21,11 @@ namespace BrideAndGroomLibrary
 
             // Open an existing file, or create a new one.
             FileInfo fi = new FileInfo(strEmail);
-            // Create a writer, ready to add entries to the file.
-            RecordFile(fi, strEmail, key, klient);
-
-
-
+            if (!fi.Exists)
+            {
+                // Create a writer, ready to add entries to the file.
+                RecordFile(fi, strEmail, key, klient);
+            }
             return strEmail;
         }
         /// <summary>
@@ -34,7 +34,7 @@ namespace BrideAndGroomLibrary
         /// <param name="strName">Имя файла</param>
         /// <param name="key">пароль</param>
         /// <param name="klient">Данные о клиенте</param>
-        public static void RecordFile(FileInfo fi, string strName, string key, BrideAndGroom klient)
+        private static void RecordFile(FileInfo fi, string strName, string key, BrideAndGroom klient)
         {
             StreamWriter sw = fi.AppendText();
             sw.WriteLine(key);
