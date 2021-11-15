@@ -34,10 +34,15 @@ namespace WinFormsAppBrideAndGroom
             this.button1 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButtonM = new System.Windows.Forms.RadioButton();
+            this.radioButtonW = new System.Windows.Forms.RadioButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.radioButton8 = new System.Windows.Forms.RadioButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.radioButton12 = new System.Windows.Forms.RadioButton();
             this.radioButton13 = new System.Windows.Forms.RadioButton();
@@ -55,18 +60,9 @@ namespace WinFormsAppBrideAndGroom
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.radioButton16 = new System.Windows.Forms.RadioButton();
-            this.radioButton17 = new System.Windows.Forms.RadioButton();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton15 = new System.Windows.Forms.RadioButton();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.radioButton18 = new System.Windows.Forms.RadioButton();
             this.radioButton19 = new System.Windows.Forms.RadioButton();
@@ -89,20 +85,16 @@ namespace WinFormsAppBrideAndGroom
             this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox8.SuspendLayout();
-            this.groupBox9.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.groupBox12.SuspendLayout();
@@ -129,7 +121,6 @@ namespace WinFormsAppBrideAndGroom
             this.label2.Size = new System.Drawing.Size(135, 30);
             this.label2.TabIndex = 1;
             this.label2.Text = "Полное имя:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // button1
             // 
@@ -140,6 +131,7 @@ namespace WinFormsAppBrideAndGroom
             this.button1.TabIndex = 2;
             this.button1.Text = "Сохранить";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // checkBox1
             // 
@@ -161,29 +153,29 @@ namespace WinFormsAppBrideAndGroom
             this.checkBox2.Text = "Богатый(более 500тыс в мес)";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // radioButtonM
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButton1.Location = new System.Drawing.Point(196, 94);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(50, 34);
-            this.radioButton1.TabIndex = 7;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "М";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButtonM.AutoSize = true;
+            this.radioButtonM.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButtonM.Location = new System.Drawing.Point(196, 94);
+            this.radioButtonM.Name = "radioButtonM";
+            this.radioButtonM.Size = new System.Drawing.Size(50, 34);
+            this.radioButtonM.TabIndex = 7;
+            this.radioButtonM.TabStop = true;
+            this.radioButtonM.Text = "М";
+            this.radioButtonM.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // radioButtonW
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButton2.Location = new System.Drawing.Point(252, 96);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(49, 34);
-            this.radioButton2.TabIndex = 8;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Ж";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButtonW.AutoSize = true;
+            this.radioButtonW.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButtonW.Location = new System.Drawing.Point(252, 96);
+            this.radioButtonW.Name = "radioButtonW";
+            this.radioButtonW.Size = new System.Drawing.Size(49, 34);
+            this.radioButtonW.TabIndex = 8;
+            this.radioButtonW.TabStop = true;
+            this.radioButtonW.Text = "Ж";
+            this.radioButtonW.UseVisualStyleBackColor = true;
             // 
             // tabControl1
             // 
@@ -205,9 +197,9 @@ namespace WinFormsAppBrideAndGroom
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.radioButton2);
+            this.tabPage1.Controls.Add(this.radioButtonW);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.radioButton1);
+            this.tabPage1.Controls.Add(this.radioButtonM);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -216,13 +208,64 @@ namespace WinFormsAppBrideAndGroom
             this.tabPage1.Text = "О себе";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(174, 70);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(303, 23);
+            this.textBox1.TabIndex = 18;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.groupBox3);
+            this.groupBox7.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox7.Location = new System.Drawing.Point(20, 433);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(463, 115);
+            this.groupBox7.TabIndex = 16;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Волосы";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.radioButton7);
+            this.groupBox3.Controls.Add(this.radioButton8);
+            this.groupBox3.Location = new System.Drawing.Point(14, 18);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(423, 83);
+            this.groupBox3.TabIndex = 16;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Цвет ";
+            // 
+            // radioButton7
+            // 
+            this.radioButton7.AutoSize = true;
+            this.radioButton7.Location = new System.Drawing.Point(233, 34);
+            this.radioButton7.Name = "radioButton7";
+            this.radioButton7.Size = new System.Drawing.Size(112, 34);
+            this.radioButton7.TabIndex = 10;
+            this.radioButton7.TabStop = true;
+            this.radioButton7.Text = "ТЕмные ";
+            this.radioButton7.UseVisualStyleBackColor = true;
+            // 
+            // radioButton8
+            // 
+            this.radioButton8.AutoSize = true;
+            this.radioButton8.Location = new System.Drawing.Point(22, 33);
+            this.radioButton8.Name = "radioButton8";
+            this.radioButton8.Size = new System.Drawing.Size(112, 34);
+            this.radioButton8.TabIndex = 9;
+            this.radioButton8.TabStop = true;
+            this.radioButton8.Text = "Светлые";
+            this.radioButton8.UseVisualStyleBackColor = true;
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.radioButton12);
             this.groupBox5.Controls.Add(this.radioButton13);
             this.groupBox5.Controls.Add(this.radioButton14);
             this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox5.Location = new System.Drawing.Point(21, 580);
+            this.groupBox5.Location = new System.Drawing.Point(20, 565);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(462, 86);
             this.groupBox5.TabIndex = 13;
@@ -269,7 +312,7 @@ namespace WinFormsAppBrideAndGroom
             this.groupBox4.Controls.Add(this.radioButton11);
             this.groupBox4.Controls.Add(this.button1);
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox4.Location = new System.Drawing.Point(21, 672);
+            this.groupBox4.Location = new System.Drawing.Point(20, 657);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(461, 142);
             this.groupBox4.TabIndex = 13;
@@ -343,7 +386,6 @@ namespace WinFormsAppBrideAndGroom
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "Средний(от 150 до 190)";
             this.radioButton3.UseVisualStyleBackColor = true;
-            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
             // radioButton4
             // 
@@ -418,94 +460,26 @@ namespace WinFormsAppBrideAndGroom
             this.tabPage2.Text = "Предпочтение";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // groupBox7
+            // label4
             // 
-            this.groupBox7.Controls.Add(this.groupBox6);
-            this.groupBox7.Controls.Add(this.groupBox3);
-            this.groupBox7.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox7.Location = new System.Drawing.Point(20, 433);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(463, 134);
-            this.groupBox7.TabIndex = 16;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Волосы";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(115, 734);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(133, 15);
+            this.label4.TabIndex = 30;
+            this.label4.Text = "Возможние кондидаты";
             // 
-            // groupBox6
+            // listBox1
             // 
-            this.groupBox6.Controls.Add(this.radioButton16);
-            this.groupBox6.Controls.Add(this.radioButton17);
-            this.groupBox6.Location = new System.Drawing.Point(248, 18);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(209, 110);
-            this.groupBox6.TabIndex = 17;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Длина";
-            // 
-            // radioButton16
-            // 
-            this.radioButton16.AutoSize = true;
-            this.radioButton16.Location = new System.Drawing.Point(32, 70);
-            this.radioButton16.Name = "radioButton16";
-            this.radioButton16.Size = new System.Drawing.Size(107, 34);
-            this.radioButton16.TabIndex = 14;
-            this.radioButton16.TabStop = true;
-            this.radioButton16.Text = "Длиные";
-            this.radioButton16.UseVisualStyleBackColor = true;
-            // 
-            // radioButton17
-            // 
-            this.radioButton17.AutoSize = true;
-            this.radioButton17.Location = new System.Drawing.Point(32, 33);
-            this.radioButton17.Name = "radioButton17";
-            this.radioButton17.Size = new System.Drawing.Size(121, 34);
-            this.radioButton17.TabIndex = 13;
-            this.radioButton17.TabStop = true;
-            this.radioButton17.Text = "Короткие";
-            this.radioButton17.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.radioButton7);
-            this.groupBox3.Controls.Add(this.radioButton8);
-            this.groupBox3.Location = new System.Drawing.Point(14, 18);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(195, 110);
-            this.groupBox3.TabIndex = 16;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Цвет ";
-            // 
-            // radioButton7
-            // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(22, 70);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(112, 34);
-            this.radioButton7.TabIndex = 10;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "ТЕмные ";
-            this.radioButton7.UseVisualStyleBackColor = true;
-            // 
-            // radioButton8
-            // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Location = new System.Drawing.Point(22, 33);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(112, 34);
-            this.radioButton8.TabIndex = 9;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "Светлые";
-            this.radioButton8.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(174, 70);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(303, 23);
-            this.textBox1.TabIndex = 18;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(81, 755);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(317, 94);
+            this.listBox1.TabIndex = 29;
             // 
             // groupBox8
             // 
-            this.groupBox8.Controls.Add(this.groupBox9);
             this.groupBox8.Controls.Add(this.groupBox10);
             this.groupBox8.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox8.Location = new System.Drawing.Point(22, 340);
@@ -515,46 +489,13 @@ namespace WinFormsAppBrideAndGroom
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Волосы";
             // 
-            // groupBox9
-            // 
-            this.groupBox9.Controls.Add(this.radioButton6);
-            this.groupBox9.Controls.Add(this.radioButton15);
-            this.groupBox9.Location = new System.Drawing.Point(248, 18);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(209, 110);
-            this.groupBox9.TabIndex = 17;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Длина";
-            // 
-            // radioButton6
-            // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(32, 58);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(107, 34);
-            this.radioButton6.TabIndex = 14;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "Длиные";
-            this.radioButton6.UseVisualStyleBackColor = true;
-            // 
-            // radioButton15
-            // 
-            this.radioButton15.AutoSize = true;
-            this.radioButton15.Location = new System.Drawing.Point(32, 33);
-            this.radioButton15.Name = "radioButton15";
-            this.radioButton15.Size = new System.Drawing.Size(121, 34);
-            this.radioButton15.TabIndex = 13;
-            this.radioButton15.TabStop = true;
-            this.radioButton15.Text = "Короткие";
-            this.radioButton15.UseVisualStyleBackColor = true;
-            // 
             // groupBox10
             // 
             this.groupBox10.Controls.Add(this.radioButton18);
             this.groupBox10.Controls.Add(this.radioButton19);
             this.groupBox10.Location = new System.Drawing.Point(14, 18);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(195, 110);
+            this.groupBox10.Size = new System.Drawing.Size(414, 110);
             this.groupBox10.TabIndex = 16;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Цвет ";
@@ -562,18 +503,19 @@ namespace WinFormsAppBrideAndGroom
             // radioButton18
             // 
             this.radioButton18.AutoSize = true;
-            this.radioButton18.Location = new System.Drawing.Point(22, 58);
+            this.radioButton18.Location = new System.Drawing.Point(247, 49);
             this.radioButton18.Name = "radioButton18";
             this.radioButton18.Size = new System.Drawing.Size(112, 34);
             this.radioButton18.TabIndex = 10;
             this.radioButton18.TabStop = true;
             this.radioButton18.Text = "ТЕмные ";
             this.radioButton18.UseVisualStyleBackColor = true;
+            this.radioButton18.CheckedChanged += new System.EventHandler(this.radioButton18_CheckedChanged);
             // 
             // radioButton19
             // 
             this.radioButton19.AutoSize = true;
-            this.radioButton19.Location = new System.Drawing.Point(21, 33);
+            this.radioButton19.Location = new System.Drawing.Point(43, 49);
             this.radioButton19.Name = "radioButton19";
             this.radioButton19.Size = new System.Drawing.Size(112, 34);
             this.radioButton19.TabIndex = 9;
@@ -683,6 +625,7 @@ namespace WinFormsAppBrideAndGroom
             this.button2.TabIndex = 2;
             this.button2.Text = "Определить";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox13
             // 
@@ -794,24 +737,6 @@ namespace WinFormsAppBrideAndGroom
             this.label5.TabIndex = 19;
             this.label5.Text = "Кого бы вы хотели ";
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(81, 755);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(317, 94);
-            this.listBox1.TabIndex = 29;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(115, 734);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(133, 15);
-            this.label4.TabIndex = 30;
-            this.label4.Text = "Возможние кондидаты";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -823,6 +748,9 @@ namespace WinFormsAppBrideAndGroom
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -833,14 +761,7 @@ namespace WinFormsAppBrideAndGroom
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox8.ResumeLayout(false);
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
             this.groupBox11.ResumeLayout(false);
@@ -862,8 +783,8 @@ namespace WinFormsAppBrideAndGroom
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButtonM;
+        private System.Windows.Forms.RadioButton radioButtonW;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -885,18 +806,12 @@ namespace WinFormsAppBrideAndGroom
         private System.Windows.Forms.RadioButton radioButton11;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.RadioButton radioButton16;
-        private System.Windows.Forms.RadioButton radioButton17;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.RadioButton radioButton7;
         private System.Windows.Forms.RadioButton radioButton8;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.RadioButton radioButton15;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.RadioButton radioButton18;
         private System.Windows.Forms.RadioButton radioButton19;

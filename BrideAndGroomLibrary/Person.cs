@@ -55,7 +55,8 @@ namespace BrideAndGroomLibrary
 
         // Рост
         Tall = Employed << 1,
-        Short = Tall << 1,
+        average = Tall <<1,
+        Short = average << 1,
 
         // Цвет волос
         BlondeHair = Short << 1,
