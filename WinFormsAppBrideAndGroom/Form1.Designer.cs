@@ -85,6 +85,7 @@ namespace WinFormsAppBrideAndGroom
             this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -444,6 +445,7 @@ namespace WinFormsAppBrideAndGroom
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.textBox2);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.listBox1);
             this.tabPage2.Controls.Add(this.groupBox8);
@@ -737,6 +739,13 @@ namespace WinFormsAppBrideAndGroom
             this.label5.TabIndex = 19;
             this.label5.Text = "Кого бы вы хотели ";
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(295, 727);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 23);
+            this.textBox2.TabIndex = 31;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -834,6 +843,7 @@ namespace WinFormsAppBrideAndGroom
         private System.Windows.Forms.CheckBox checkBox7;
         private System.Windows.Forms.CheckBox checkBox8;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 

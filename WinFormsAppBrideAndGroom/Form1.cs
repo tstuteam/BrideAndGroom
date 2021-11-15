@@ -160,7 +160,7 @@ namespace WinFormsAppBrideAndGroom
             agency.AddPerson(groom1);
             agency.AddPerson(groom2);
             agency.AddPerson(groom3);
-            listBox1.Text = agency.FindBestPair(bride).ToString();
+            textBox2.Text = agency.FindBestPair(bride).ToString();
 
         }
         /// <summary>
