@@ -117,38 +117,14 @@ namespace WinFormsAppBrideAndGroom
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            email += ".txt";
-            BrideAndGroom klient = WorkFile.ReadFile(email, key);
+            string bufemail = email + ".txt";
+            BrideAndGroom klient = WorkFile.ReadFile(bufemail, key);
 
 
             GoodLuck agency = new();
             // невеста
             agency = WorkFile.ReadFaills();
 
-            // жених
-            //var groom1 = new BrideAndGroom("Vladimir Mayakovsky",
-            //    Gender.Male,
-            //    Properties.Employed,
-            //    Properties.Kind);
-            //// жених
-            //var groom2 = new BrideAndGroom(
-            //    "Vladimir Noname",
-            //    Gender.Male,
-            //    Properties.None,
-            //    Properties.Young);
-            //// жених
-            //var groom3 = new BrideAndGroom("Esenin",
-            //    Gender.Male,
-            //    Properties.Employed | Properties.Rich,
-            //    Properties.Kind);
-            //var groom4 = new BrideAndGroom("Ese",
-            //    Gender.Female,
-            //    Properties.Employed | Properties.Rich,
-            //    Properties.Kind);
-            //agency.AddPerson(groom1);
-            //agency.AddPerson(groom2);
-            //agency.AddPerson(groom3);
-            //agency.AddPerson(groom4);
             agency.AddPerson(klient);
             
             textBox1.Text = agency.FindBestPair(klient).ToString();
@@ -161,12 +137,13 @@ namespace WinFormsAppBrideAndGroom
         /// <param name="e"></param>
         private void button2_Click_1(object sender, EventArgs e)
         {
-            email += ".txt";
-            BrideAndGroom klient = WorkFile.ReadFile(email, key);
-           
+            string bufemail = email + ".txt";
+            BrideAndGroom klient = WorkFile.ReadFile(bufemail, key);
+
 
             Properties desiredProperties = 0;
             klient.DesiredProperties = desirProperties(desiredProperties);
+            WorkFile.file_Del(email);
             WorkFile.file_add(email, key, klient);
         }
     }
