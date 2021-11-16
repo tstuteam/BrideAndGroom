@@ -13,8 +13,7 @@ namespace WinFormsAppBrideAndGroom
             InitializeComponent();
         }
 
-        public string email;
-        public string key;
+        public BrideAndGroom account;
         
 
         /// <summary>
@@ -36,80 +35,59 @@ namespace WinFormsAppBrideAndGroom
         {
             ///Общие свойства
             if (checkBox1.Checked)
-            {
-                desiredProperties = desiredProperties | Properties.Kind;
-            }
+                desiredProperties |= Properties.Kind;
+
             if (checkBox2.Checked)
-            {
-                desiredProperties = desiredProperties | Properties.Rich;
-            }
+                desiredProperties |= Properties.Rich;
+
             if (checkBox3.Checked)
-            {
-                desiredProperties = desiredProperties | Properties.Employed;
-            }
+                desiredProperties |= Properties.Employed;
+
             if (checkBox4.Checked)
-            {
-                desiredProperties = desiredProperties | Properties.HasEducation;
-            }
+                desiredProperties |= Properties.HasEducation;
+
             ///рост
-
             if (checkBox8.Checked)
-            {
-                desiredProperties = desiredProperties | Properties.average;
+                desiredProperties |= Properties.average;
 
-            }
             if (checkBox7.Checked)
-            {
-                desiredProperties = desiredProperties | Properties.Short;
+                desiredProperties |= Properties.Short;
 
-            }
             if (checkBox6.Checked)
-            {
-                desiredProperties = desiredProperties | Properties.Tall;
-            }
+                desiredProperties |= Properties.Tall;
+
             ///Волосы
             //Цвет
             if (checkBox9.Checked)
-            {
-                desiredProperties = desiredProperties | Properties.BlondeHair;
+                desiredProperties |= Properties.BlondeHair;
 
-            }
             if (checkBox5.Checked)
-            {
-                desiredProperties = desiredProperties | Properties.DarkHair;
-            }
+                desiredProperties |= Properties.DarkHair;
 
             ///Глаза
             //Цвет
             if (checkBox12.Checked)
-            {
-                desiredProperties = desiredProperties | Properties.BrownEyes;
+                desiredProperties |= Properties.BrownEyes;
 
-            }
             if (checkBox11.Checked)
-            {
-                desiredProperties = desiredProperties | Properties.BlueEyes;
-            }
+                desiredProperties |= Properties.BlueEyes;
+
             if (checkBox13.Checked)
-            {
-                desiredProperties = desiredProperties | Properties.GreenEyes;
-            }
+                desiredProperties |= Properties.GreenEyes;
+
             //Ворзраст
             if (checkBox15.Checked)
-            {
-                desiredProperties = desiredProperties | Properties.Young;
+                desiredProperties |= Properties.Young;
 
-            }
             if (checkBox16.Checked)
-            {
-                desiredProperties = desiredProperties | Properties.MiddleAged;
-            }
+                desiredProperties |= Properties.MiddleAged;
+
             if (checkBox14.Checked)
-            {
-                desiredProperties = desiredProperties | Properties.Old;
-            }
+                desiredProperties |= Properties.Old;
+
             return desiredProperties;
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -117,17 +95,36 @@ namespace WinFormsAppBrideAndGroom
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            string bufemail = email + ".txt";
-            BrideAndGroom klient = WorkFile.ReadFile(bufemail, key);
-
-
-            GoodLuck agency = new();
             // невеста
-            agency = WorkFile.ReadFaills();
+            //agency = Database.ReadFaills();
 
-            agency.AddPerson(klient);
+            // жених
+            //var groom1 = new BrideAndGroom("Vladimir Mayakovsky",
+            //    Gender.Male,
+            //    Properties.Employed,
+            //    Properties.Kind);
+            //// жених
+            //var groom2 = new BrideAndGroom(
+            //    "Vladimir Noname",
+            //    Gender.Male,
+            //    Properties.None,
+            //    Properties.Young);
+            //// жених
+            //var groom3 = new BrideAndGroom("Esenin",
+            //    Gender.Male,
+            //    Properties.Employed | Properties.Rich,
+            //    Properties.Kind);
+            //var groom4 = new BrideAndGroom("Ese",
+            //    Gender.Female,
+            //    Properties.Employed | Properties.Rich,
+            //    Properties.Kind);
+            //agency.AddPerson(groom1);
+            //agency.AddPerson(groom2);
+            //agency.AddPerson(groom3);
+            //agency.AddPerson(groom4);
+            //agency.AddPerson(klient);
             
-            textBox1.Text = agency.FindBestPair(klient).ToString();
+            //textBox1.Text = agency.FindBestPair(klient).ToString();
         }
         
         /// <summary>
@@ -137,14 +134,10 @@ namespace WinFormsAppBrideAndGroom
         /// <param name="e"></param>
         private void button2_Click_1(object sender, EventArgs e)
         {
-            string bufemail = email + ".txt";
-            BrideAndGroom klient = WorkFile.ReadFile(bufemail, key);
-
-
             Properties desiredProperties = 0;
-            klient.DesiredProperties = desirProperties(desiredProperties);
-            WorkFile.file_Del(email);
-            WorkFile.file_add(email, key, klient);
+            account.DesiredProperties = desirProperties(desiredProperties);
+
+            Program.Agency.DB.UpdateData(false);
         }
     }
 }
