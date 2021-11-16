@@ -30,7 +30,7 @@ namespace WinFormsAppBrideAndGroom
 
             BrideAndGroom account = Program.Agency.DB.SearchPerson(strEmail);
 
-            if (account == null || account.Password != key)
+            if (account == null || account.PasswordHash != BrideAndGroom.HashString(key))
             {
                 MessageBox.Show("Неправильный e-mail или пароль.", "Ошибка авторизации");
                 return;
