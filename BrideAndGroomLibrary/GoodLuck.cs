@@ -108,8 +108,8 @@ namespace BrideAndGroomLibrary
         {
             var searchList = person.Gender switch
             {
-                Gender.Male => _brides,
-                Gender.Female => _grooms,
+                Gender.Male => Brides,
+                Gender.Female => Grooms,
                 _ => throw new ArgumentException("Персона имеет неправильное поле `Gender`.")
             };
 
