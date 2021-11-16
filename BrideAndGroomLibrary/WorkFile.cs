@@ -58,8 +58,8 @@ namespace BrideAndGroomLibrary
             Gender gender = Gender.Male;
             Properties ownProperties = 0;
             Properties desProperties = 0;
-
-            strName += ".txt";
+            
+            
             // Create a writer, ready to add entries to the file.
 
             StreamReader sr = new StreamReader(strName);

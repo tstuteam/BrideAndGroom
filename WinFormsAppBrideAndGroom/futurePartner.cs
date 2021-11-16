@@ -110,9 +110,14 @@ namespace WinFormsAppBrideAndGroom
             }
             return desiredProperties;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
+            email += ".txt";
             BrideAndGroom klient = WorkFile.ReadFile(email, key);
 
 
@@ -140,12 +145,12 @@ namespace WinFormsAppBrideAndGroom
             //    Gender.Female,
             //    Properties.Employed | Properties.Rich,
             //    Properties.Kind);
-
-            agency.AddPerson(klient);
             //agency.AddPerson(groom1);
             //agency.AddPerson(groom2);
             //agency.AddPerson(groom3);
             //agency.AddPerson(groom4);
+            agency.AddPerson(klient);
+            
             textBox1.Text = agency.FindBestPair(klient).ToString();
         }
         
@@ -156,6 +161,7 @@ namespace WinFormsAppBrideAndGroom
         /// <param name="e"></param>
         private void button2_Click_1(object sender, EventArgs e)
         {
+            email += ".txt";
             BrideAndGroom klient = WorkFile.ReadFile(email, key);
            
 
