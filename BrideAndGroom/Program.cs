@@ -40,7 +40,7 @@ namespace BrideAndGroom
             Console.WriteLine(agency.FindBestPair(bride));
         }
 
-        public static void workFile()
+        public static void workFile1()
         {
             string Email = "waeff@fvw.eee";
             string key = "1654";
@@ -55,7 +55,8 @@ namespace BrideAndGroom
         private static void Main()
         {
             //Test();
-            workFile();
+            workFile1();
+            WorkFile.ReadFaills();
         }
     }
 }
