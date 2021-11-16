@@ -7,7 +7,7 @@ namespace BrideAndGroomLibrary
     /// </summary>
     public enum Gender
     {
-        Male,
+        Male = 1,
         Female
     }
 
@@ -19,23 +19,23 @@ namespace BrideAndGroomLibrary
         /// <summary>
         ///     Полное имя
         /// </summary>
-        private readonly string _fullName;
+        public string FullName { get; }
 
         /// <summary>
         ///     Пол
         /// </summary>
-        internal readonly Gender Gender;
+        public Gender Gender { get; }
 
 
         protected Person(string fullName, Gender gender)
         {
-            _fullName = fullName;
+            FullName = fullName;
             Gender = gender;
         }
 
         public override string ToString()
         {
-            return _fullName;
+            return FullName;
         }
     }
 
