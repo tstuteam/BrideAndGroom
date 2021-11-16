@@ -78,10 +78,78 @@ namespace BrideAndGroomLibrary
                 }
                 ownProperties = (Properties)(Convert.ToByte(sr.ReadLine()));
                 desProperties = (Properties)(Convert.ToByte(sr.ReadLine()));
+                
 
             }
+            
             BrideAndGroom klient = new BrideAndGroom(fullName, gender, ownProperties, desProperties);
+            
             return klient;
+        }
+
+        /// <summary>
+        ///     Получить ключ из названия
+        /// </summary>
+        /// <param name="strName"></param>
+        /// <returns></returns>
+        private static string ReadKey(string strName)
+        {
+            string key;
+            StreamReader sr = new StreamReader(strName);
+            key = sr.ReadLine();
+            return key;
+        }
+
+        /// <summary>
+        /// Функция для чтение файла из папки
+        /// </summary>
+        public static GoodLuck ReadFaills()
+        {
+            /// <summary>
+            ///     Работа с файловой системой
+            /// </summary>
+            DirectoryInfo Dir = new DirectoryInfo(Directory.GetCurrentDirectory());
+            FileInfo[] Files = Dir.GetFiles("*.txt");
+            string strName = "";
+            GoodLuck agency = new();
+            try
+            {
+                int kol_vo = 0, R = 0;
+                kol_vo = Files.Length;
+                if (kol_vo == 0)
+                {
+                    strName=" В каталоге приложения не обнаружено текстовых файлов.\n";
+                    return agency;
+                }
+                else
+                {
+                    for (int i = 0; i < kol_vo; i++)
+                    {
+                        strName = Files[i].Name;
+                        ///Запись данных
+                        agency.AddPerson(ReadFile(strName, ReadKey(strName)));
+                        //Console.Write("{0:d}: {1:s}\n", i + 1, strName);
+                    }
+                    do
+                    {
+
+                        R = int.Parse(Console.ReadLine());
+                        if (R > kol_vo || R < 0)
+                        {
+                            strName = "ОШИБКА: Неверный номер файла.";
+                            return agency;
+                        }
+
+                    } while (R > kol_vo || R <= 0);
+                }
+                strName = Files[R - 1].Name;
+                return agency;
+            }
+            catch (Exception)
+            {
+                strName ="\nОШИБКА: Неверный формат файла.\n";
+                return agency;
+            }
         }
     }
 }
