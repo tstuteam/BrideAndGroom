@@ -122,7 +122,7 @@ namespace WinFormsAppBrideAndGroom
                 return;
 			}
 
-            BrideAndGroom client = new BrideAndGroom(email, key, FullName, gender, ownProperties, desiredProperties);
+            BrideAndGroom client = new BrideAndGroom(email, BrideAndGroom.HashString(key), FullName, gender, ownProperties, desiredProperties);
 
             Form2 f2 = new Form2();
             f2.account = client;

@@ -27,7 +27,7 @@ namespace BrideAndGroomLibrary
             gender)
         {
             Email = email;
-            PasswordHash = HashString(passwordHash);
+            PasswordHash = passwordHash;
             OwnProperties = ownProperties;
             DesiredProperties = desiredProperties;
         }

@@ -1,7 +1,7 @@
 ﻿using System;
 using BrideAndGroomLibrary;
 
-namespace BrideAndGroom
+namespace BrideAndGroomProgram
 {
     internal static class Program
     {
@@ -15,7 +15,7 @@ namespace BrideAndGroom
         {
             // невеста
             var bride = new BrideAndGroomLibrary.BrideAndGroom("lilya@yandex.ru",
-                "123123",
+                BrideAndGroom.HashString("123123"),
                 "Lilya Brik",
                 Gender.Female,
                 Properties.Kind | Properties.Young,
@@ -24,28 +24,28 @@ namespace BrideAndGroom
 
             // жених
             var groom1 = new BrideAndGroomLibrary.BrideAndGroom("vladimir@yandex.ru",
-                "5555555555555", 
+                BrideAndGroom.HashString("5555555555555"), 
                 "Vladimir Mayakovsky",
                 Gender.Male,
                 Properties.Employed,
                 Properties.Kind);
             // жених
             var groom2 = new BrideAndGroomLibrary.BrideAndGroom("noname@gmail.com",
-                "@*4asdjk42@!",
+                BrideAndGroom.HashString("@*4asdjk42@!"),
                 "Vladimir Noname",
                 Gender.Male,
                 Properties.None,
                 Properties.Young);
             // жених
             var groom3 = new BrideAndGroomLibrary.BrideAndGroom("esenin@yandex.ru",
-                "d98@@91!123",
+                BrideAndGroom.HashString("d98@@91!123"),
                 "Esenin",
                 Gender.Male,
                 Properties.Employed | Properties.Rich,
                 Properties.Kind);
 
             var groom4 = new BrideAndGroomLibrary.BrideAndGroom("waeff@fvw.eee",
-                "1653",
+                BrideAndGroom.HashString("1653"),
                 "Esenin",
                 Gender.Male,
                 Properties.Employed | Properties.Rich,
