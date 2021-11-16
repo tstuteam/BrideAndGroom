@@ -40,6 +40,43 @@ namespace BrideAndGroom
             Console.WriteLine(agency.FindBestPair(bride));
         }
 
+        private static void Test2()
+        {
+            GoodLuck agency = new();
+            // невеста
+            var bride = new BrideAndGroomLibrary.BrideAndGroom("Lilya Brik",
+                Gender.Female,
+                Properties.Kind | Properties.Young,
+                Properties.Employed 
+            );
+
+            // жених
+            var groom1 = new BrideAndGroomLibrary.BrideAndGroom("Vladimir Mayakovsky",
+                Gender.Male,
+                Properties.Employed,
+                Properties.Kind);
+            // жених
+            var groom2 = new BrideAndGroomLibrary.BrideAndGroom(
+                "Vladimir Noname",
+                Gender.Male,
+                Properties.None,
+                Properties.Young);
+            // жених
+            var groom3 = new BrideAndGroomLibrary.BrideAndGroom("Esenin",
+                Gender.Male,
+                Properties.Employed | Properties.Rich,
+                Properties.Kind);
+
+            agency.AddPerson(bride);
+            agency.AddPerson(groom1);
+            agency.AddPerson(groom2);
+            agency.AddPerson(groom3);
+            foreach (var item in agency.FindBestPairs(bride))
+            {
+                Console.WriteLine(item.pair);
+            }
+            
+        }
         public static void workFile1()
         {
             string Email = "waeff@fvw.eee";
@@ -55,6 +92,7 @@ namespace BrideAndGroom
         private static void Main()
         {
             //Test();
+            Test2();
             workFile1();
             WorkFile.ReadFaills();
         }
