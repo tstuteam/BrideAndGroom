@@ -113,13 +113,22 @@ namespace WinFormsAppBrideAndGroom
                 ownProperties = ownProperties | Properties.Old;
             }
 
-            BrideAndGroom klient = new BrideAndGroom(FullName, gender, ownProperties, desiredProperties);
+            string email = textBoxE_mail.Text;
+            string key = textBoxKey.Text;
 
-            string EEors;
+            if (Program.Agency.DB.SearchPerson(email) != null)
+			{
+                MessageBox.Show("Аккаунт на эту почту уже зарегистрирован.", "Ошибка регистрации");
+                return;
+			}
+
+            BrideAndGroom client = new BrideAndGroom(email, key, FullName, gender, ownProperties, desiredProperties);
+
             Form2 f2 = new Form2();
-            f2.email = textBoxE_mail.Text;
-            f2.key = textBoxKey.Text;
-            EEors = WorkFile.file_add(f2.email, f2.key, klient);
+            f2.account = client;
+
+            Program.Agency.AddPerson(client);
+            Program.Agency.DB.UpdateData(false);
             
             f2.Show();
 
