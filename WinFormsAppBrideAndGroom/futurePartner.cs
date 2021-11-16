@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+
 using BrideAndGroomLibrary;
 using System.Windows.Forms;
 
@@ -13,7 +15,7 @@ namespace WinFormsAppBrideAndGroom
 
         public string email;
         public string key;
-
+        
 
         /// <summary>
         /// Кнопка Определить
@@ -116,36 +118,37 @@ namespace WinFormsAppBrideAndGroom
 
             GoodLuck agency = new();
             // невеста
+            agency = WorkFile.ReadFaills();
 
-
             // жених
-            var groom1 = new BrideAndGroom("Vladimir Mayakovsky",
-                Gender.Male,
-                Properties.Employed,
-                Properties.Kind);
-            // жених
-            var groom2 = new BrideAndGroom(
-                "Vladimir Noname",
-                Gender.Male,
-                Properties.None,
-                Properties.Young);
-            // жених
-            var groom3 = new BrideAndGroom("Esenin",
-                Gender.Male,
-                Properties.Employed | Properties.Rich,
-                Properties.Kind);
-            var groom4 = new BrideAndGroom("Ese",
-                Gender.Female,
-                Properties.Employed | Properties.Rich,
-                Properties.Kind);
+            //var groom1 = new BrideAndGroom("Vladimir Mayakovsky",
+            //    Gender.Male,
+            //    Properties.Employed,
+            //    Properties.Kind);
+            //// жених
+            //var groom2 = new BrideAndGroom(
+            //    "Vladimir Noname",
+            //    Gender.Male,
+            //    Properties.None,
+            //    Properties.Young);
+            //// жених
+            //var groom3 = new BrideAndGroom("Esenin",
+            //    Gender.Male,
+            //    Properties.Employed | Properties.Rich,
+            //    Properties.Kind);
+            //var groom4 = new BrideAndGroom("Ese",
+            //    Gender.Female,
+            //    Properties.Employed | Properties.Rich,
+            //    Properties.Kind);
 
             agency.AddPerson(klient);
-            agency.AddPerson(groom1);
-            agency.AddPerson(groom2);
-            agency.AddPerson(groom3);
-            agency.AddPerson(groom4);
+            //agency.AddPerson(groom1);
+            //agency.AddPerson(groom2);
+            //agency.AddPerson(groom3);
+            //agency.AddPerson(groom4);
             textBox1.Text = agency.FindBestPair(klient).ToString();
         }
+        
         /// <summary>
         ///     Сохранить параметры
         /// </summary>
