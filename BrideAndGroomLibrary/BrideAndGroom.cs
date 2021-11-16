@@ -12,15 +12,22 @@ namespace BrideAndGroomLibrary
         /// <param name="gender">Пол</param>
         /// <param name="ownProperties">Собственные свойства</param>
         /// <param name="desiredProperties">Свойства, которые хотелось бы иметь у партнёра</param>
-        public BrideAndGroom(string fullName,
+        public BrideAndGroom(string email,
+            string password,
+            string fullName,
             Gender gender,
             Properties ownProperties,
             Properties desiredProperties) : base(fullName,
             gender)
         {
+            Email = email;
+            Password = password;
             OwnProperties = ownProperties;
             DesiredProperties = desiredProperties;
         }
+
+        public string Email { get; set; }
+        public string Password { get; set; }
 
         /// <summary>
         ///     Собственные свойства

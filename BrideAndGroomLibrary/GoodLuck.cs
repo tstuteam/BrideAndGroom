@@ -8,9 +8,18 @@ namespace BrideAndGroomLibrary
     /// </summary>
     public class GoodLuck
     {
+        // База данных агенства
+        public Database DB;
+
         // Списки, содержащие невест и женихов
-        private readonly List<BrideAndGroom> _brides = new();
-        private readonly List<BrideAndGroom> _grooms = new();
+
+        public List<BrideAndGroom> Brides { get => DB.Brides; }
+        public List<BrideAndGroom> Grooms { get => DB.Grooms; }
+
+        public GoodLuck(bool loadData = true)
+		{
+            DB = new(this, loadData);
+		}
 
         /// <summary>
         ///     Считает количество совпадений качеств требований
@@ -57,8 +66,8 @@ namespace BrideAndGroomLibrary
         {
             var searchList = person.Gender switch
             {
-                Gender.Male => _brides,
-                Gender.Female => _grooms,
+                Gender.Male => Brides,
+                Gender.Female => Grooms,
                 _ => throw new ArgumentException("Персона имеет неправильное поле `Gender`.")
             };
 
@@ -99,10 +108,10 @@ namespace BrideAndGroomLibrary
             switch (person.Gender)
             {
                 case Gender.Male:
-                    _grooms.Add(person);
+                    Grooms.Add(person);
                     break;
                 case Gender.Female:
-                    _brides.Add(person);
+                    Brides.Add(person);
                     break;
                 default:
                     throw new ArgumentException("Персона имеет неправильное поле `Gender`.");
