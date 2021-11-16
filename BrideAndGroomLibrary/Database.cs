@@ -1,55 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 
 namespace BrideAndGroomLibrary
 {
     public class Database
     {
-        private GoodLuck agency;
-        private GoodLuckLists data = new()
+        private GoodLuckLists _data = new()
         {
-            brides = new(),
-            grooms = new()
+            Brides = new List<BrideAndGroom>(),
+            Grooms = new List<BrideAndGroom>()
         };
 
-        public List<BrideAndGroom> Brides { get => data.brides; }
-        public List<BrideAndGroom> Grooms { get => data.grooms; }
-
-        /// <summary>
-        ///     Вспомогательная структура для сериализации.
-        /// </summary>
-        private struct GoodLuckLists
+        public Database(bool loadData = true)
         {
-            public List<BrideAndGroom> brides { get; set; }
-            public List<BrideAndGroom> grooms { get; set; }
-		}
-
-        public Database(GoodLuck agency, bool loadData = true)
-		{
-            this.agency = agency;
-
             if (loadData)
                 LoadData();
-		}
+        }
+
+        public List<BrideAndGroom> Brides => _data.Brides;
+        public List<BrideAndGroom> Grooms => _data.Grooms;
 
         /// <summary>
         ///     Загружает данные из файла в поле `agency`.
         /// </summary>
-        public void LoadData()
-		{
+        private void LoadData()
+        {
             if (!File.Exists("data.json"))
-			{
+            {
                 UpdateData(false);
                 return;
-			}
+            }
 
-            string jsonData = File.ReadAllText("data.json");
-            data = JsonSerializer.Deserialize<GoodLuckLists>(jsonData);
+            var jsonData = File.ReadAllText("data.json");
+            _data = JsonSerializer.Deserialize<GoodLuckLists>(jsonData);
         }
 
         /// <summary>
@@ -57,13 +42,13 @@ namespace BrideAndGroomLibrary
         /// </summary>
         /// <param name="indented">Применить индентацию к строке JSON.</param>
         public void UpdateData(bool indented)
-		{
-            string jsonData = JsonSerializer.Serialize(data, new()
+        {
+            var jsonData = JsonSerializer.Serialize(_data, new JsonSerializerOptions
             {
                 WriteIndented = indented
             });
             File.WriteAllText("data.json", jsonData);
-		}
+        }
 
         /// <summary>
         ///     Находит персону по почте в списке.
@@ -71,15 +56,9 @@ namespace BrideAndGroomLibrary
         /// <param name="email">Адрес электронной почты.</param>
         /// <param name="list">Список для поиска.</param>
         /// <returns></returns>
-        private BrideAndGroom SearchPerson(string email, List<BrideAndGroom> list)
-		{
-            foreach (BrideAndGroom item in list)
-			{
-                if (item.Email == email)
-                    return item;
-			}
-
-            return null;
+        private static BrideAndGroom SearchPerson(string email, IEnumerable<BrideAndGroom> list)
+        {
+            return list.FirstOrDefault(item => item.Email == email);
         }
 
         /// <summary>
@@ -89,15 +68,26 @@ namespace BrideAndGroomLibrary
         /// <returns></returns>
         public BrideAndGroom SearchPerson(string email)
         {
-            BrideAndGroom person = SearchBride(email);
-
-            if (person == null)
-                person = SearchGroom(email);
-
-            return person;
+            return SearchBride(email) ?? SearchGroom(email);
         }
 
-        public BrideAndGroom SearchBride(string email) => SearchPerson(email, Brides);
-        public BrideAndGroom SearchGroom(string email) => SearchPerson(email, Grooms);
+        private BrideAndGroom SearchBride(string email)
+        {
+            return SearchPerson(email, Brides);
+        }
+
+        private BrideAndGroom SearchGroom(string email)
+        {
+            return SearchPerson(email, Grooms);
+        }
+
+        /// <summary>
+        ///     Вспомогательная структура для сериализации.
+        /// </summary>
+        private struct GoodLuckLists
+        {
+            public List<BrideAndGroom> Brides { get; set; }
+            public List<BrideAndGroom> Grooms { get; set; }
+        }
     }
 }

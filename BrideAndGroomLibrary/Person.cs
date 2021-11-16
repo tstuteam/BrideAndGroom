@@ -16,22 +16,21 @@ namespace BrideAndGroomLibrary
     /// </summary>
     public class Person
     {
-        /// <summary>
-        ///     Полное имя
-        /// </summary>
-        public string FullName { get; }
-
-        /// <summary>
-        ///     Пол
-        /// </summary>
-        public Gender Gender { get; }
-
-
         protected Person(string fullName, Gender gender)
         {
             FullName = fullName;
             Gender = gender;
         }
+
+        /// <summary>
+        ///     Полное имя
+        /// </summary>
+        private string FullName { get; }
+
+        /// <summary>
+        ///     Пол
+        /// </summary>
+        public Gender Gender { get; }
 
         public override string ToString()
         {
@@ -55,8 +54,8 @@ namespace BrideAndGroomLibrary
 
         // Рост
         Tall = Employed << 1,
-        average = Tall <<1,
-        Short = average << 1,
+        Average = Tall << 1,
+        Short = Average << 1,
 
         // Цвет волос
         BlondeHair = Short << 1,

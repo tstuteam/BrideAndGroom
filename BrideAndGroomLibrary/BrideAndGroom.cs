@@ -1,6 +1,6 @@
 using System;
-using System.Text;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace BrideAndGroomLibrary
 {
@@ -9,15 +9,17 @@ namespace BrideAndGroomLibrary
     /// </summary>
     public class BrideAndGroom : Person
     {
-        private static readonly SHA1 hasher = SHA1.Create();
+        private static readonly SHA1 Hasher = SHA1.Create();
 
         /// <summary>
         ///     Конструктор жениха или невесты
         /// </summary>
+        /// <param name="passwordHash"></param>
         /// <param name="fullName">Полное имя</param>
         /// <param name="gender">Пол</param>
         /// <param name="ownProperties">Собственные свойства</param>
         /// <param name="desiredProperties">Свойства, которые хотелось бы иметь у партнёра</param>
+        /// <param name="email"></param>
         public BrideAndGroom(string email,
             string passwordHash,
             string fullName,
@@ -46,12 +48,12 @@ namespace BrideAndGroomLibrary
         public Properties DesiredProperties { get; set; }
 
         public static string HashString(string str)
-		{
-            byte[] bytes = Encoding.UTF8.GetBytes(str);
-            byte[] hash = hasher.ComputeHash(bytes);
-            string hexHash = Convert.ToHexString(hash);
+        {
+            var bytes = Encoding.UTF8.GetBytes(str);
+            var hash = Hasher.ComputeHash(bytes);
+            var hexHash = Convert.ToHexString(hash);
 
             return hexHash;
-		}
+        }
     }
 }

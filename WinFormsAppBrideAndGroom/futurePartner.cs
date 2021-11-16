@@ -1,33 +1,31 @@
 ﻿using System;
-using System.IO;
-
-using BrideAndGroomLibrary;
 using System.Windows.Forms;
+using BrideAndGroomLibrary;
 
 namespace WinFormsAppBrideAndGroom
 {
     public partial class Form2 : Form
     {
+        public BrideAndGroom account;
+
         public Form2()
         {
             InitializeComponent();
         }
 
-        public BrideAndGroom account;
-        
 
         /// <summary>
-        /// Кнопка Определить
+        ///     Кнопка Определить
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-
         }
+
         //}
         /// <summary>
-        /// Заполнение параметров
+        ///     Заполнение параметров
         /// </summary>
         /// <param name="desiredProperties"></param>
         /// <returns></returns>
@@ -48,7 +46,7 @@ namespace WinFormsAppBrideAndGroom
 
             ///рост
             if (checkBox8.Checked)
-                desiredProperties |= Properties.average;
+                desiredProperties |= Properties.Average;
 
             if (checkBox7.Checked)
                 desiredProperties |= Properties.Short;
@@ -89,7 +87,6 @@ namespace WinFormsAppBrideAndGroom
         }
 
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -123,10 +120,10 @@ namespace WinFormsAppBrideAndGroom
             //agency.AddPerson(groom3);
             //agency.AddPerson(groom4);
             //agency.AddPerson(klient);
-            
+
             //textBox1.Text = agency.FindBestPair(klient).ToString();
         }
-        
+
         /// <summary>
         ///     Сохранить параметры
         /// </summary>
@@ -137,8 +134,7 @@ namespace WinFormsAppBrideAndGroom
             Properties desiredProperties = 0;
             account.DesiredProperties = desirProperties(desiredProperties);
 
-            Program.Agency.DB.UpdateData(false);
+            Program.Agency.Db.UpdateData(false);
         }
     }
 }
-

@@ -9,17 +9,17 @@ namespace BrideAndGroomLibrary
     public class GoodLuck
     {
         // База данных агенства
-        public Database DB;
+        public readonly Database Db;
+
+        public GoodLuck(bool loadData = true)
+        {
+            Db = new Database(loadData);
+        }
 
         // Списки, содержащие невест и женихов
 
-        public List<BrideAndGroom> Brides { get => DB.Brides; }
-        public List<BrideAndGroom> Grooms { get => DB.Grooms; }
-
-        public GoodLuck(bool loadData = true)
-		{
-            DB = new(this, loadData);
-		}
+        private List<BrideAndGroom> Brides => Db.Brides;
+        private List<BrideAndGroom> Grooms => Db.Grooms;
 
         /// <summary>
         ///     Считает количество совпадений качеств требований
@@ -96,72 +96,6 @@ namespace BrideAndGroomLibrary
             }
 
             return bestPair;
-        }
-
-        /// <summary>
-        ///     Метод, находящий наиболии подходящии пары
-        /// </summary>
-        /// <param name="person">Персона, которой находит пары</param>
-        /// <exception cref="ArgumentException"></exception>
-        /// <returns>Наиболии подходящии пары</returns>
-        public List<Pair> FindBestPairs(BrideAndGroom person)
-        {
-            var searchList = person.Gender switch
-            {
-                Gender.Male => Brides,
-                Gender.Female => Grooms,
-                _ => throw new ArgumentException("Персона имеет неправильное поле `Gender`.")
-            };
-
-            var bestPair = BestPairs(person, searchList);
-
-            return bestPair;
-        }
-
-        /// <summary>
-        ///     Находит лучшуии пары из списке кандидатов
-        /// </summary>
-        /// <param name="person">Персона, которому ищем кандидата</param>
-        /// <param name="searchList">Список кандидатов</param>
-        /// <returns>Лучшии кандидаты персоне</returns>
-        private static List<Pair> BestPairs(BrideAndGroom person, List<BrideAndGroom> searchList)
-        {
-            BrideAndGroom bestPair = null;
-            List<Pair> pairs = new List<Pair>();
-
-            var highestCompatibility = int.MinValue;
-            foreach (var pair in searchList)
-            {
-                var compatibility = ComputeCompatibility(person, pair);
-                if (compatibility < highestCompatibility)
-                    continue;
-                bestPair = pair;
-                highestCompatibility = compatibility;
-                Pair pair1 = new Pair(bestPair, compatibility);
-
-                pairs.Add(pair1);
-               
-            }
-
-            return pairs;
-        }
-        /// <summary>
-        /// пары
-        /// </summary>
-        public class Pair
-        {
-            public BrideAndGroom pair { get; }
-            public int compatibility { get; }
-            /// <summary>
-            /// Конструктор
-            /// </summary>
-            /// <param name="pair">Пара</param>
-            /// <param name="compatibility">Совместимость</param>
-            public Pair(BrideAndGroom pair, int compatibility)
-            {
-                this.pair = pair;
-                this.compatibility = compatibility;
-            }
         }
 
         /// <summary>

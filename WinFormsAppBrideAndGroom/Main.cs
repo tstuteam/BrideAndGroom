@@ -1,34 +1,34 @@
 ﻿using System;
-using BrideAndGroomLibrary;
 using System.Windows.Forms;
+using BrideAndGroomLibrary;
 
 namespace WinFormsAppBrideAndGroom
 {
     public partial class Main : Form
     {
+        public Properties desiredProperties;
+
+        public string FullName;
+
+        public Gender gender = new();
+        public Properties ownProperties;
+
         public Main()
         {
             InitializeComponent();
         }
 
-        public Gender gender = new Gender();
-         
-        public string FullName;
-        public Properties ownProperties;
-        public Properties desiredProperties;
-       
 
         private void radioButton18_CheckedChanged(object sender, EventArgs e)
         {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string strEmail = textBoxE_mail.Text;
-            string key = textBoxKey.Text;
+            var strEmail = textBoxE_mail.Text;
+            var key = textBoxKey.Text;
 
-            BrideAndGroom account = Program.Agency.DB.SearchPerson(strEmail);
+            var account = Program.Agency.Db.SearchPerson(strEmail);
 
             if (account == null || account.PasswordHash != BrideAndGroom.HashString(key))
             {
@@ -36,18 +36,16 @@ namespace WinFormsAppBrideAndGroom
                 return;
             }
 
-            Form2 f2 = new Form2();
+            var f2 = new Form2();
             f2.account = account;
             f2.Show();
-            
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            regen reg = new regen();
+            var reg = new regen();
 
             reg.Show();
-            
         }
     }
 }
