@@ -29,6 +29,21 @@ namespace BrideAndGroomLibrary
             return strEmail;
         }
         /// <summary>
+        ///     DEl загрусолчного файла
+        /// </summary>
+        /// <returns>Имя файла</returns>
+        public static string file_Del(string Email)
+        {
+
+
+            string strEmail = Email + ".txt";
+
+            File.Delete(strEmail);
+            
+            return strEmail;
+        }
+
+        /// <summary>
         ///     запись данных в файл
         /// </summary>
         /// <param name="strName">Имя файла</param>
@@ -44,8 +59,6 @@ namespace BrideAndGroomLibrary
             sw.WriteLine(((byte)klient.DesiredProperties));
             sw.Flush();
             sw.Close();
-
-
         }
         /// <summary>
         ///     Чтение данных из файла с проверкой паролья
@@ -81,7 +94,7 @@ namespace BrideAndGroomLibrary
                 
 
             }
-            
+            sr.Close();
             BrideAndGroom klient = new BrideAndGroom(fullName, gender, ownProperties, desProperties);
             
             return klient;
